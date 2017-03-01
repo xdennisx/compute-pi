@@ -140,3 +140,16 @@ double compute_pi_euler(size_t N)
     pi *= 6;
     return sqrt(pi);
 }
+
+double compute_pi_nilakantha(size_t N)
+{
+    double pi = 0.0;
+    int tmp = 1;
+    for(size_t i=2; i <= N; i++) {
+        pi += tmp / ((2.0 * (double)i)*(2.0*(double)i-1)*(2.0*(double)i-2));
+        tmp *= (-1);
+    }
+    pi *= 4.0;
+    pi += 3;
+    return pi;
+}

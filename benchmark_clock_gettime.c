@@ -106,7 +106,19 @@ int main(int argc, char const *argv[])
     error = diff / M_PI;
     printf("%lf,", (double) (end.tv_sec - start.tv_sec) +
            (end.tv_nsec - start.tv_nsec)/ONE_SEC);
-    printf("%lf\n", error);
+    printf("%lf,", error);
 
+    // nilakantha
+    clock_gettime(CLOCK_ID, &start);
+    for (i = 0; i < loop; i++) {
+        compute_pi_nilakantha(N);
+    }
+    clock_gettime(CLOCK_ID, &end);
+    pi = compute_pi_nilakantha(N);
+    diff = pi - M_PI > 0 ? pi - M_PI : M_PI - pi;
+    error = diff / M_PI;
+    printf("%lf,", (double) (end.tv_sec - start.tv_sec) +
+           (end.tv_nsec - start.tv_nsec)/ONE_SEC);
+    printf("%lf\n", error);
     return 0;
 }

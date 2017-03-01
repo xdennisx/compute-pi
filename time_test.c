@@ -33,6 +33,10 @@ int main(int argc, char const *argv[])
 #if defined(EULER)
     pi = compute_pi_euler(N);
 #endif
+
+#if defined(NILAKANTHA)
+    pi = compute_pi_nilakantha(N);
+#endif
     printf("N = %d , pi = %lf\n", N, pi);
 
     return 0;

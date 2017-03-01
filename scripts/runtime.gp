@@ -13,7 +13,8 @@ plot [100:][0:] "result_clock_gettime.csv" using 1:2 smooth csplines lw 2 title 
 '' using 1:8 smooth csplines lw 2 title 'AVX', \
 '' using 1:10 smooth csplines lw 2 title 'AVX_unroll', \
 '' using 1:12 smooth csplines lw 2 title 'Leibniz', \
-'' using 1:14 smooth csplines lw 2 title 'Euler'
+'' using 1:14 smooth csplines lw 2 title 'Euler', \
+'' using 1:16 smooth csplines lw 2 title 'Nilakantha'
 
 reset
 set title 'error rate'
@@ -29,4 +30,5 @@ plot [100:][0:] "result_clock_gettime.csv" using 1:3 smooth csplines lw 2 title 
 '' using 1:9 smooth csplines lw 2 title 'AVX', \
 '' using 1:11 smooth csplines lw 2 title 'AVX_unroll', \
 '' using 1:13 smooth csplines lw 2 title 'Leibniz', \
-'' using 1:15 smooth csplines lw 2 title 'Euler'
+'' using 1:15 smooth csplines lw 2 title 'Euler', \
+'' using 1:17 smooth csplines lw 2 title 'Nilakantha'
