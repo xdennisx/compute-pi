@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <immintrin.h>
 #include <omp.h>
+#include "math.h"
 #include "computepi.h"
 
 double compute_pi_baseline(size_t N)
@@ -116,4 +117,26 @@ double compute_pi_avx_unroll(size_t N)
           tmp3[0] + tmp3[1] + tmp3[2] + tmp3[3] +
           tmp4[0] + tmp4[1] + tmp4[2] + tmp4[3];
     return pi * 4.0;
+}
+
+double compute_pi_leibniz(size_t N)
+{
+    double pi = 0.0;
+    int tmp = 1;
+    for (size_t i =0; i < N; i++) {
+        pi += tmp / (2.0 * (double)i + 1.0);
+        tmp *= (-1);
+    }
+    pi *= 4;
+    return pi;
+}
+
+double compute_pi_euler(size_t N)
+{
+    double pi = 0.0;
+    for (size_t i = 1; i <= N; i++) {
+        pi += (1 / pow(i, 2.0));
+    }
+    pi *= 6;
+    return sqrt(pi);
 }
